@@ -64,6 +64,15 @@
             opacity: 0;
             transform: translateY(4px);
         }
+        /* Точное выравнивание карточек слайдера без обрезки пополам */
+        .carousel-viewport {
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-track {
+            display: flex;
+            will-change: transform;
+        }
     </style>
 </head>
 <body class="bg-brand-black text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-brand-black overflow-x-hidden">
@@ -124,7 +133,6 @@
             <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Переключатель языка с плавной скользящей плашкой -->
                 <div class="relative flex items-center bg-brand-dark border border-white/15 rounded-xl p-1 select-none">
-                    <!-- Скользящий желтый индикатор -->
                     <div id="lang-pill" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-brand-yellow rounded-lg transition-transform duration-300 ease-out shadow-md"></div>
                     <button type="button" onclick="setLanguage('ru')" id="lang-ru" class="relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-brand-black">
                         RU
@@ -270,7 +278,7 @@
         </div>
     </section>
 
-    <!-- Наши Работы (Бесконечная круговая карусель со стрелками по бокам фото) -->
+    <!-- Наши Работы (Точная карусель без обрезания карточек: 1 на телефоне, 2 на планшете, 3 на ноутбуке) -->
     <section id="portfolio" class="py-14 sm:py-20 bg-brand-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -284,164 +292,166 @@
                 <div class="w-16 sm:w-20 h-1.5 bg-brand-green mx-auto mt-4 rounded-full"></div>
             </div>
 
-            <!-- Обертка карусели со стильными стрелками по бокам карточек -->
-            <div class="relative px-2 sm:px-8 lg:px-10">
+            <!-- Обертка карусели с боковыми стрелками -->
+            <div class="relative px-6 sm:px-12 lg:px-14">
                 
                 <!-- Левая стрелка (желтеет при наведении и клике) -->
                 <button type="button" id="carousel-prev" aria-label="Предыдущее фото"
-                        class="absolute left-0 sm:left-1 lg:-left-2 top-[44%] -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
-                    <i class="fa-solid fa-chevron-left text-base sm:text-xl"></i>
+                        class="absolute left-0 sm:left-1 top-[44%] -translate-y-1/2 z-30 w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
+                    <i class="fa-solid fa-chevron-left text-sm sm:text-lg"></i>
                 </button>
 
                 <!-- Правая стрелка (желтеет при наведении и клике) -->
                 <button type="button" id="carousel-next" aria-label="Следующее фото"
-                        class="absolute right-0 sm:right-1 lg:-right-2 top-[44%] -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
-                    <i class="fa-solid fa-chevron-right text-base sm:text-xl"></i>
+                        class="absolute right-0 sm:right-1 top-[44%] -translate-y-1/2 z-30 w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
+                    <i class="fa-solid fa-chevron-right text-sm sm:text-lg"></i>
                 </button>
 
-                <!-- Трек бесконечной карусели -->
-                <div id="portfolio-track" class="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-2">
-                    
-                    <!-- Карточка 1: Павильон (графит + дерево) -->
-                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
-                         data-real-index="0"
-                         data-img="5456306069383616949_125.jpg">
-                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
-                            <img src="5456306069383616949_125.jpg" alt="Торгово-коммерческий павильон" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work4_badge">
-                                Коммерческий объект
-                            </span>
-                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-expand"></i>
+                <!-- Окно просмотра (Viewport), в котором карточки всегда встают ровно по сетке -->
+                <div id="carousel-viewport" class="carousel-viewport py-2">
+                    <div id="portfolio-track" class="carousel-track">
+                        
+                        <!-- Карточка 1: Павильон (графит + дерево) -->
+                        <div class="gallery-item shrink-0 bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                             data-real-index="0"
+                             data-img="5456306069383616949_125.jpg">
+                            <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-black shrink-0">
+                                <img src="5456306069383616949_125.jpg" alt="Торгово-коммерческий павильон" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work4_badge">
+                                    Коммерческий объект
+                                </span>
+                                <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work4_cat">Композитные кассеты + Декор</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work4_title">Торгово-коммерческий павильон</h3>
+                                    <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work4_desc">
+                                        Облицовка фасада и широкого парапета графитовыми композитными кассетами в сочетании с декоративными вставками под дерево.
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                    <span class="truncate"><i class="fa-solid fa-store text-brand-yellow mr-1"></i><span data-i18n="work4_foot">Комбинированный фасад</span></span>
+                                    <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work4_cat">Композитные кассеты + Декор</span>
-                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work4_title">Торгово-коммерческий павильон</h3>
-                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work4_desc">
-                                    Облицовка фасада и широкого парапета графитовыми композитными кассетами в сочетании с декоративными вставками под дерево.
-                                </p>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate"><i class="fa-solid fa-store text-brand-yellow mr-1"></i><span data-i18n="work4_foot">Комбинированный фасад</span></span>
-                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Карточка 2: Шоурум с витражным остеклением -->
-                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
-                         data-real-index="1"
-                         data-img="5456306069383616951_124.jpg">
-                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
-                            <img src="5456306069383616951_124.jpg" alt="Объемный фриз и витражное остекление" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work5_badge">
-                                Шоурум / Магазин
-                            </span>
-                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-expand"></i>
+                        <!-- Карточка 2: Шоурум с витражным остеклением -->
+                        <div class="gallery-item shrink-0 bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                             data-real-index="1"
+                             data-img="5456306069383616951_124.jpg">
+                            <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-black shrink-0">
+                                <img src="5456306069383616951_124.jpg" alt="Объемный фриз и витражное остекление" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work5_badge">
+                                    Шоурум / Магазин
+                                </span>
+                                <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work5_cat">Вентилируемый фасад</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work5_title">Объемный фриз и витражи</h3>
+                                    <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work5_desc">
+                                        Монтаж двухцветных композитных кассет (серебристый металлик и графит) над панорамным остеклением с точной геометрией углов.
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                    <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work5_foot">Кассеты АКП + Витражи</span></span>
+                                    <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work5_cat">Вентилируемый фасад</span>
-                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work5_title">Объемный фриз и витражи</h3>
-                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work5_desc">
-                                    Монтаж двухцветных композитных кассет (серебристый металлик и графит) над панорамным остеклением с точной геометрией углов.
-                                </p>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work5_foot">Кассеты АКП + Витражи</span></span>
-                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Карточка 3: Входная группа и колонны -->
-                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
-                         data-real-index="2"
-                         data-img="5456306069383616889_121.jpg">
-                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
-                            <img src="5456306069383616889_121.jpg" alt="Входная группа и колонны" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work1_badge">
-                                Входная группа
-                            </span>
-                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-expand"></i>
+                        <!-- Карточка 3: Входная группа и колонны -->
+                        <div class="gallery-item shrink-0 bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                             data-real-index="2"
+                             data-img="5456306069383616889_121.jpg">
+                            <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-black shrink-0">
+                                <img src="5456306069383616889_121.jpg" alt="Входная группа и колонны" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work1_badge">
+                                    Входная группа
+                                </span>
+                                <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work1_cat">Композитные панели</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work1_title">Оформление входа и колонн</h3>
+                                    <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work1_desc">
+                                        Кассетная облицовка колонн, козырька и портала второго этажа яркими зелеными композитными панелями и темно-серым фасадом.
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                    <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work1_foot">Фрезеровка и монтаж АКП</span></span>
+                                    <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work1_cat">Композитные панели</span>
-                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work1_title">Оформление входа и колонн</h3>
-                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work1_desc">
-                                    Кассетная облицовка колонн, козырька и портала второго этажа яркими зелеными композитными панелями и темно-серым фасадом.
-                                </p>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work1_foot">Фрезеровка и монтаж АКП</span></span>
-                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Карточка 4: Фасад административного здания -->
-                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
-                         data-real-index="3"
-                         data-img="5456306069383616890_121.jpg">
-                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
-                            <img src="5456306069383616890_121.jpg" alt="Фасад административного здания" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work2_badge">
-                                Готовый объект
-                            </span>
-                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-expand"></i>
+                        <!-- Карточка 4: Фасад административного здания -->
+                        <div class="gallery-item shrink-0 bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                             data-real-index="3"
+                             data-img="5456306069383616890_121.jpg">
+                            <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-black shrink-0">
+                                <img src="5456306069383616890_121.jpg" alt="Фасад административного здания" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work2_badge">
+                                    Готовый объект
+                                </span>
+                                <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work2_cat">Вентилируемый фасад</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work2_title">Фасад административного здания</h3>
+                                    <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work2_desc">
+                                        Комплексная облицовка фасада композитными кассетами, аккуратные оконные откосы и четкая геометрия швов по всей площади стены.
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                    <span class="truncate"><i class="fa-solid fa-building-shield text-brand-yellow mr-1"></i><span data-i18n="work2_foot">Под ключ</span></span>
+                                    <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work2_cat">Вентилируемый фасад</span>
-                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work2_title">Фасад административного здания</h3>
-                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work2_desc">
-                                    Комплексная облицовка фасада композитными кассетами, аккуратные оконные откосы и четкая геометрия швов по всей площади стены.
-                                </p>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate"><i class="fa-solid fa-building-shield text-brand-yellow mr-1"></i><span data-i18n="work2_foot">Под ключ</span></span>
-                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Карточка 5: 4 этапа реконструкции -->
-                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
-                         data-real-index="4"
-                         data-img="5.jpg">
-                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
-                            <img src="5.jpg" onerror="this.onerror=null; this.src='5456306069383616891_121.jpg'; this.closest('.gallery-item').setAttribute('data-img', '5456306069383616891_121.jpg');" alt="Этапы монтажа и утепления фасада" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-                            <span class="absolute top-3 left-3 bg-white text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work3_badge">
-                                До и После: 4 этапа
-                            </span>
-                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-expand"></i>
+                        <!-- Карточка 5: 4 этапа реконструкции -->
+                        <div class="gallery-item shrink-0 bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                             data-real-index="4"
+                             data-img="5.jpg">
+                            <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-black shrink-0">
+                                <img src="5.jpg" onerror="this.onerror=null; this.src='5456306069383616891_121.jpg'; this.closest('.gallery-item').setAttribute('data-img', '5456306069383616891_121.jpg');" alt="Этапы монтажа и утепления фасада" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-white text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work3_badge">
+                                    До и После: 4 этапа
+                                </span>
+                                <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-expand"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work3_cat">Утепление + Вентфасад</span>
+                                    <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work3_title">Полный цикл реконструкции</h3>
+                                    <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work3_desc">
+                                        Все 4 этапа работы: подготовка стен и лесов → утепление и мембрана → монтаж подсистемы и кассет → готовый современный фасад.
+                                    </p>
+                                </div>
+                                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                    <span class="truncate"><i class="fa-solid fa-temperature-arrow-up text-brand-green mr-1"></i><span data-i18n="work3_foot">Теплоизоляция + АКП</span></span>
+                                    <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                            <div>
-                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work3_cat">Утепление + Вентфасад</span>
-                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work3_title">Полный цикл реконструкции</h3>
-                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work3_desc">
-                                    Все 4 этапа работы: подготовка стен и лесов → утепление и мембрана → монтаж подсистемы и кассет → готовый современный фасад.
-                                </p>
-                            </div>
-                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
-                                <span class="truncate"><i class="fa-solid fa-temperature-arrow-up text-brand-green mr-1"></i><span data-i18n="work3_foot">Теплоизоляция + АКП</span></span>
-                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
-                            </div>
-                        </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
 
@@ -871,7 +881,6 @@
             currentLang = lang;
             document.documentElement.lang = lang;
 
-            // Плавный сдвиг желтой плашки переключателя
             const pill = document.getElementById('lang-pill');
             const btnRu = document.getElementById('lang-ru');
             const btnRo = document.getElementById('lang-ro');
@@ -886,7 +895,6 @@
                 btnRu.className = "relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-gray-300 hover:text-white";
             }
 
-            // Плавное затухание текста -> подмена -> плавное появление
             document.body.classList.add('lang-switching');
             if (langTimeout) clearTimeout(langTimeout);
 
@@ -921,46 +929,66 @@
             link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
         });
 
-        // БЕСКОНЕЧНАЯ КРУГОВАЯ КАРУСЕЛЬ (Infinite Loop Slider)
+        // ТОЧНАЯ БЕСКОНЕЧНАЯ КАРУСЕЛЬ (Transform-based: всегда целые карточки по центру без обрезки пополам)
+        const viewport = document.getElementById('carousel-viewport');
         const track = document.getElementById('portfolio-track');
-        const originalCards = Array.from(track.querySelectorAll('.gallery-item'));
-        const totalReal = originalCards.length; // 5 карточек
+        const baseCards = Array.from(track.querySelectorAll('.gallery-item'));
+        const totalReal = baseCards.length; // 5 карточек
         const dots = document.querySelectorAll('.slider-dot');
 
-        const photoList = originalCards.map(c => c.getAttribute('data-img'));
+        const photoList = baseCards.map(c => c.getAttribute('data-img'));
 
-        // Клонируем набор карточек в начало и в конец для бесшовного вращения по кругу
-        originalCards.forEach(card => {
-            const cloneEnd = card.cloneNode(true);
-            track.appendChild(cloneEnd);
+        // Клонируем набор карточек слева и справа для бесконечной прокрутки
+        baseCards.forEach(card => {
+            track.appendChild(card.cloneNode(true));
         });
-        originalCards.slice().reverse().forEach(card => {
-            const cloneStart = card.cloneNode(true);
-            track.insertBefore(cloneStart, track.firstChild);
+        baseCards.slice().reverse().forEach(card => {
+            track.insertBefore(card.cloneNode(true), track.firstChild);
         });
 
-        function getCardStep() {
-            const firstCard = track.querySelector('.gallery-item');
-            if (!firstCard) return 340;
-            const gap = window.innerWidth >= 640 ? 24 : 16;
-            return firstCard.offsetWidth + gap;
+        const allCards = Array.from(track.querySelectorAll('.gallery-item'));
+        let currentIndex = totalReal; // Начинаем с первой карточки центрального набора (индекс 5)
+        let isAnimating = false;
+        let cardStep = 0;
+
+        function getVisibleCount() {
+            if (window.innerWidth >= 1024) return 3; // Ноутбук / ПК — ровно 3 целые карточки
+            if (window.innerWidth >= 640) return 2;  // Планшет — ровно 2 целые карточки
+            return 1;                                // Телефон — ровно 1 целая карточка по центру
         }
 
-        function resetToCenterSet() {
-            const step = getCardStep();
-            track.scrollLeft = totalReal * step;
+        function getGap() {
+            return window.innerWidth >= 640 ? 24 : 16;
+        }
+
+        function layoutCarousel() {
+            const visible = getVisibleCount();
+            const gap = getGap();
+            const vpWidth = viewport.clientWidth;
+            const cardWidth = (vpWidth - gap * (visible - 1)) / visible;
+
+            track.style.gap = `${gap}px`;
+            allCards.forEach(card => {
+                card.style.width = `${cardWidth}px`;
+            });
+
+            cardStep = cardWidth + gap;
+            setTrackPosition(false);
+        }
+
+        function setTrackPosition(animate = true) {
+            if (animate) {
+                track.style.transition = 'transform 0.42s cubic-bezier(0.25, 1, 0.5, 1)';
+            } else {
+                track.style.transition = 'none';
+            }
+            const offset = -currentIndex * cardStep;
+            track.style.transform = `translate3d(${offset}px, 0, 0)`;
             updateActiveDot();
         }
 
-        window.addEventListener('load', resetToCenterSet);
-        window.addEventListener('resize', resetToCenterSet);
-
-        let isJumping = false;
-
         function updateActiveDot() {
-            const step = getCardStep();
-            const rawIndex = Math.round(track.scrollLeft / step);
-            const realIndex = ((rawIndex % totalReal) + totalReal) % totalReal;
+            const realIndex = ((currentIndex % totalReal) + totalReal) % totalReal;
             dots.forEach((dot, idx) => {
                 if (idx === realIndex) {
                     dot.className = "slider-dot w-7 h-2 rounded-full bg-brand-yellow transition-all";
@@ -970,38 +998,64 @@
             });
         }
 
-        track.addEventListener('scroll', () => {
-            if (isJumping) return;
-            const step = getCardStep();
-            const setWidth = totalReal * step;
-
-            if (track.scrollLeft <= step * 0.5) {
-                isJumping = true;
-                track.scrollLeft += setWidth;
-                isJumping = false;
-            } else if (track.scrollLeft >= setWidth * 2 - step * 0.5) {
-                isJumping = true;
-                track.scrollLeft -= setWidth;
-                isJumping = false;
-            }
-            updateActiveDot();
-        });
-
         function moveCarousel(dir) {
-            const step = getCardStep();
-            track.scrollBy({ left: dir * step, behavior: 'smooth' });
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex += dir;
+            setTrackPosition(true);
         }
+
+        track.addEventListener('transitionend', (e) => {
+            if (e.target !== track) return;
+            isAnimating = false;
+            // Бесшовный возврат в центральный набор, если дошли до клонов
+            if (currentIndex < totalReal) {
+                currentIndex += totalReal;
+                setTrackPosition(false);
+            } else if (currentIndex >= totalReal * 2) {
+                currentIndex -= totalReal;
+                setTrackPosition(false);
+            }
+        });
 
         document.getElementById('carousel-prev').addEventListener('click', () => moveCarousel(-1));
         document.getElementById('carousel-next').addEventListener('click', () => moveCarousel(1));
 
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
-                const idx = parseInt(dot.getAttribute('data-dot'), 10);
-                const step = getCardStep();
-                track.scrollTo({ left: (totalReal + idx) * step, behavior: 'smooth' });
+                if (isAnimating) return;
+                const targetReal = parseInt(dot.getAttribute('data-dot'), 10);
+                currentIndex = totalReal + targetReal;
+                setTrackPosition(true);
             });
         });
+
+        // Свайп пальцем по карусели на телефоне (переключает строго по 1 целой карточке)
+        let carouselTouchStartX = 0;
+        let carouselTouchMoved = false;
+
+        viewport.addEventListener('touchstart', (e) => {
+            carouselTouchStartX = e.changedTouches[0].screenX;
+            carouselTouchMoved = false;
+        }, { passive: true });
+
+        viewport.addEventListener('touchmove', (e) => {
+            if (Math.abs(e.changedTouches[0].screenX - carouselTouchStartX) > 12) {
+                carouselTouchMoved = true;
+            }
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            const diff = e.changedTouches[0].screenX - carouselTouchStartX;
+            if (Math.abs(diff) > 40) {
+                if (diff < 0) moveCarousel(1);
+                else moveCarousel(-1);
+            }
+        }, { passive: true });
+
+        window.addEventListener('load', layoutCarousel);
+        window.addEventListener('resize', layoutCarousel);
+        layoutCarousel();
 
         // Полноэкранный Lightbox (бесконечный по кругу)
         const lightbox = document.getElementById('lightbox');
@@ -1014,13 +1068,14 @@
 
         function openLightbox(index) {
             currentPhotoIndex = ((index % totalReal) + totalReal) % totalReal;
-            const currentImg = originalCards[currentPhotoIndex].getAttribute('data-img') || photoList[currentPhotoIndex];
+            const currentImg = baseCards[currentPhotoIndex].getAttribute('data-img') || photoList[currentPhotoIndex];
             lightboxImg.setAttribute('src', currentImg);
             lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${totalReal}`;
             lightbox.classList.remove('hidden');
         }
 
         track.addEventListener('click', (e) => {
+            if (carouselTouchMoved) return; // Если был свайп, не открываем модалку случайно
             const card = e.target.closest('.gallery-item');
             if (!card) return;
             const realIdx = parseInt(card.getAttribute('data-real-index'), 10);
@@ -1050,13 +1105,13 @@
         });
 
         // Свайп пальцем внутри полноэкранного фото на телефоне
-        let touchStartX = 0;
+        let lbTouchStartX = 0;
         lightbox.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+            lbTouchStartX = e.changedTouches[0].screenX;
         }, { passive: true });
 
         lightbox.addEventListener('touchend', (e) => {
-            const diff = e.changedTouches[0].screenX - touchStartX;
+            const diff = e.changedTouches[0].screenX - lbTouchStartX;
             if (Math.abs(diff) > 45) {
                 if (diff < 0) openLightbox(currentPhotoIndex + 1);
                 else openLightbox(currentPhotoIndex - 1);
