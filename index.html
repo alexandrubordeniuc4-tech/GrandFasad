@@ -54,6 +54,16 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Плавная анимация смены языка для всех текстовых элементов */
+        [data-i18n], [data-i18n-placeholder] {
+            transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        .lang-switching [data-i18n],
+        .lang-switching [data-i18n-placeholder] {
+            opacity: 0;
+            transform: translateY(4px);
+        }
     </style>
 </head>
 <body class="bg-brand-black text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-brand-black overflow-x-hidden">
@@ -90,11 +100,11 @@
 
     <!-- Header / Navbar -->
     <header id="navbar" class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-22 flex items-center justify-between gap-2">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
             
-            <!-- SVG Logo GRAND FASAD -->
+            <!-- Аккуратно уменьшенный SVG Logo GRAND FASAD -->
             <a href="#" class="flex items-center focus:outline-none shrink-0" aria-label="GRAND FASAD">
-                <svg viewBox="0 0 830 250" class="h-10 sm:h-14 md:h-16 w-auto overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 830 250" class="h-8 sm:h-11 md:h-12 w-auto overflow-visible transition-transform duration-300 hover:scale-[1.02]" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 235 76 A 108 108 0 1 0 242 132 L 242 122 L 146 122 L 146 149 L 211 149 A 80 80 0 1 1 209 92 Z" fill="#FAD30E"/>
                     <text x="436" y="146" text-anchor="middle" fill="#FAD30E" font-family="'Jost', 'Montserrat', sans-serif" font-weight="600" font-size="168" letter-spacing="8">RAN</text>
                     <text x="438" y="233" text-anchor="middle" fill="#75A635" font-family="'Jost', 'Montserrat', sans-serif" font-weight="700" font-size="76" letter-spacing="38">FASAD</text>
@@ -110,20 +120,22 @@
                 <a href="#contacts" class="hover:text-brand-yellow transition" data-i18n="nav_contacts">Контакты</a>
             </nav>
 
-            <!-- Right Actions: Language Switcher + CTA -->
+            <!-- Right Actions: Sliding Pill Language Switcher + CTA -->
             <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Language Switcher RU / RO -->
-                <div class="flex items-center bg-brand-dark border border-white/15 rounded-xl p-0.5 sm:p-1">
-                    <button type="button" onclick="setLanguage('ru')" id="lang-ru" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black">
+                <!-- Переключатель языка с плавной скользящей плашкой -->
+                <div class="relative flex items-center bg-brand-dark border border-white/15 rounded-xl p-1 select-none">
+                    <!-- Скользящий желтый индикатор -->
+                    <div id="lang-pill" class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-brand-yellow rounded-lg transition-transform duration-300 ease-out shadow-md"></div>
+                    <button type="button" onclick="setLanguage('ru')" id="lang-ru" class="relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-brand-black">
                         RU
                     </button>
-                    <button type="button" onclick="setLanguage('ro')" id="lang-ro" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white">
+                    <button type="button" onclick="setLanguage('ro')" id="lang-ro" class="relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-gray-300 hover:text-white">
                         RO
                     </button>
                 </div>
 
                 <!-- CTA Button -->
-                <a href="tel:069041101" class="hidden sm:flex bg-brand-yellow hover:bg-yellow-400 text-brand-black font-extrabold text-sm px-5 py-3 rounded-xl shadow-lg shadow-brand-yellow/20 transition transform hover:-translate-y-0.5 items-center gap-2">
+                <a href="tel:069041101" class="hidden sm:flex bg-brand-yellow hover:bg-yellow-400 text-brand-black font-extrabold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-yellow/20 transition transform hover:-translate-y-0.5 items-center gap-2">
                     <i class="fa-solid fa-phone-volume"></i>
                     <span>0690-41-101</span>
                 </a>
@@ -164,9 +176,9 @@
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight tracking-tight text-white">
-                        <span data-i18n="hero_title_1">Современные</span> <br>
-                        <span class="text-brand-yellow" data-i18n="hero_title_2">Фасады Зданий</span> <br>
-                        <span data-i18n="hero_title_3">Под Ключ</span>
+                        <span data-i18n="hero_title_1" class="inline-block">Современные</span> <br>
+                        <span class="text-brand-yellow inline-block" data-i18n="hero_title_2">Фасады Зданий</span> <br>
+                        <span data-i18n="hero_title_3" class="inline-block">Под Ключ</span>
                     </h1>
 
                     <p class="text-gray-200 text-sm sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
@@ -262,7 +274,7 @@
     <section id="portfolio" class="py-14 sm:py-20 bg-brand-black">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Центрированный заголовок (без верхних стрелок) -->
+            <!-- Центрированный заголовок -->
             <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
                 <span class="text-brand-yellow font-bold text-xs sm:text-sm uppercase tracking-widest" data-i18n="port_tag">Реальные объекты GRAND FASAD</span>
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase text-white mt-1.5" data-i18n="port_title">Наши работы</h2>
@@ -564,7 +576,7 @@
                 <div class="lg:col-span-5 space-y-5">
                     <!-- SVG Logo -->
                     <a href="#" class="inline-block focus:outline-none" aria-label="GRAND FASAD">
-                        <svg viewBox="0 0 830 250" class="h-12 sm:h-14 w-auto" xmlns="http://www.w3.org/2000/svg">
+                        <svg viewBox="0 0 830 250" class="h-10 sm:h-12 w-auto" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 235 76 A 108 108 0 1 0 242 132 L 242 122 L 146 122 L 146 149 L 211 149 A 80 80 0 1 1 209 92 Z" fill="#FAD30E"/>
                             <text x="436" y="146" text-anchor="middle" fill="#FAD30E" font-family="'Jost', 'Montserrat', sans-serif" font-weight="600" font-size="168" letter-spacing="8">RAN</text>
                             <text x="438" y="233" text-anchor="middle" fill="#75A635" font-family="'Jost', 'Montserrat', sans-serif" font-weight="700" font-size="76" letter-spacing="38">FASAD</text>
@@ -852,34 +864,51 @@
         };
 
         let currentLang = 'ru';
+        let langTimeout = null;
 
         function setLanguage(lang) {
+            if (lang === currentLang) return;
             currentLang = lang;
             document.documentElement.lang = lang;
 
+            // Плавный сдвиг желтой плашки переключателя
+            const pill = document.getElementById('lang-pill');
             const btnRu = document.getElementById('lang-ru');
             const btnRo = document.getElementById('lang-ro');
+
             if (lang === 'ru') {
-                btnRu.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black";
-                btnRo.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white";
+                pill.style.transform = 'translateX(0%)';
+                btnRu.className = "relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-brand-black";
+                btnRo.className = "relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-gray-300 hover:text-white";
             } else {
-                btnRo.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black";
-                btnRu.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white";
+                pill.style.transform = 'translateX(100%)';
+                btnRo.className = "relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-brand-black";
+                btnRu.className = "relative z-10 w-9 sm:w-10 py-1 rounded-lg text-xs font-extrabold transition-colors duration-300 text-gray-300 hover:text-white";
             }
 
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
+            // Плавное затухание текста -> подмена -> плавное появление
+            document.body.classList.add('lang-switching');
+            if (langTimeout) clearTimeout(langTimeout);
 
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.setAttribute('placeholder', translations[lang][key]);
-                }
-            });
+            langTimeout = setTimeout(() => {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.textContent = translations[lang][key];
+                    }
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (translations[lang][key]) {
+                        el.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+
+                requestAnimationFrame(() => {
+                    document.body.classList.remove('lang-switching');
+                });
+            }, 190);
         }
 
         // Мобильное меню
@@ -898,10 +927,9 @@
         const totalReal = originalCards.length; // 5 карточек
         const dots = document.querySelectorAll('.slider-dot');
 
-        // Сохраняем массив картинок для полноэкранного просмотра
         const photoList = originalCards.map(c => c.getAttribute('data-img'));
 
-        // Клонируем набор карточек в начало и в конец для бесшовного бесконечного вращения в обе стороны
+        // Клонируем набор карточек в начало и в конец для бесшовного вращения по кругу
         originalCards.forEach(card => {
             const cloneEnd = card.cloneNode(true);
             track.appendChild(cloneEnd);
@@ -918,7 +946,6 @@
             return firstCard.offsetWidth + gap;
         }
 
-        // Устанавливаем стартовую позицию на центральный (оригинальный) блок карточек
         function resetToCenterSet() {
             const step = getCardStep();
             track.scrollLeft = totalReal * step;
@@ -943,7 +970,6 @@
             });
         }
 
-        // Бесшовный перескок при достижении клонов слева или справа
         track.addEventListener('scroll', () => {
             if (isJumping) return;
             const step = getCardStep();
@@ -977,7 +1003,7 @@
             });
         });
 
-        // Полноэкранный Lightbox (тоже бесконечный по кругу)
+        // Полноэкранный Lightbox (бесконечный по кругу)
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -988,14 +1014,12 @@
 
         function openLightbox(index) {
             currentPhotoIndex = ((index % totalReal) + totalReal) % totalReal;
-            // Берем актуальный путь с оригинальной карточки (на случай фоллбэка 5.jpg)
             const currentImg = originalCards[currentPhotoIndex].getAttribute('data-img') || photoList[currentPhotoIndex];
             lightboxImg.setAttribute('src', currentImg);
             lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${totalReal}`;
             lightbox.classList.remove('hidden');
         }
 
-        // Делегирование клика на все карточки (включая клоны)
         track.addEventListener('click', (e) => {
             const card = e.target.closest('.gallery-item');
             if (!card) return;
