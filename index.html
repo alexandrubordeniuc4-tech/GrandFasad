@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>GRAND FASAD — Фасады зданий | Fațade clădiri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        logo: ['Jost', 'Montserrat', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            black: '#0A0909',
+                            darker: '#110F0F',
+                            dark: '#181515',
+                            yellow: '#FAD30E',
+                            green: '#689F38',
+                            greenLight: '#75A635'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(135deg, rgba(10, 9, 9, 0.94) 0%, rgba(17, 15, 15, 0.85) 55%, rgba(104, 159, 56, 0.22) 100%),
+                              url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
+        }
+        .pattern-grid {
+            background-image: radial-gradient(rgba(250, 211, 14, 0.10) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-brand-black overflow-x-hidden">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-darker border-b border-white/10 text-xs py-2 px-3 sm:px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+            <div class="flex items-center gap-4 text-gray-300 truncate">
+                <span class="flex items-center gap-1.5 truncate">
+                    <i class="fa-solid fa-shield-halved text-brand-green shrink-0"></i>
+                    <span data-i18n="top_guarantee" class="truncate">Фасады зданий под ключ</span>
+                </span>
+                <span class="hidden md:flex items-center gap-1.5">
+                    <i class="fa-regular fa-clock text-brand-yellow"></i>
+                    <span data-i18n="top_hours">Пн–Сб: 08:00 – 19:00</span>
+                </span>
+            </div>
+            <div class="flex items-center gap-3 shrink-0 ml-auto">
+                <a href="tel:069041101" class="font-extrabold text-white hover:text-brand-yellow transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-brand-green animate-pulse"></i>
+                    <span>0690-41-101</span>
+                </a>
+                <div class="flex items-center gap-2.5 border-l border-white/15 pl-3">
+                    <a href="https://wa.me/37369041101" target="_blank" title="WhatsApp" class="text-gray-300 hover:text-[#25D366] transition text-sm sm:text-base">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="viber://chat?number=%2B37369041101" title="Viber" class="text-gray-300 hover:text-[#7360f2] transition text-sm sm:text-base">
+                        <i class="fa-brands fa-viber"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header id="navbar" class="sticky top-0 z-40 bg-brand-black/95 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-22 flex items-center justify-between gap-2">
+            
+            <!-- SVG Logo GRAND FASAD -->
+            <a href="#" class="flex items-center focus:outline-none shrink-0" aria-label="GRAND FASAD">
+                <svg viewBox="0 0 830 250" class="h-10 sm:h-14 md:h-16 w-auto overflow-visible" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 235 76 A 108 108 0 1 0 242 132 L 242 122 L 146 122 L 146 149 L 211 149 A 80 80 0 1 1 209 92 Z" fill="#FAD30E"/>
+                    <text x="436" y="146" text-anchor="middle" fill="#FAD30E" font-family="'Jost', 'Montserrat', sans-serif" font-weight="600" font-size="168" letter-spacing="8">RAN</text>
+                    <text x="438" y="233" text-anchor="middle" fill="#75A635" font-family="'Jost', 'Montserrat', sans-serif" font-weight="700" font-size="76" letter-spacing="38">FASAD</text>
+                    <path fill-rule="evenodd" d="M 634 17 L 714 17 C 778 17 818 61 818 125 C 818 189 778 233 714 233 L 634 233 Z M 664 45 L 710 45 C 758 45 788 77 788 125 C 788 173 758 205 710 205 L 664 205 Z" fill="#FAD30E"/>
+                </svg>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-bold uppercase tracking-wider text-gray-200">
+                <a href="#portfolio" class="hover:text-brand-yellow transition" data-i18n="nav_portfolio">Наши работы</a>
+                <a href="#services" class="hover:text-brand-yellow transition" data-i18n="nav_services">Услуги</a>
+                <a href="#advantages" class="hover:text-brand-yellow transition" data-i18n="nav_advantages">Преимущества</a>
+                <a href="#contacts" class="hover:text-brand-yellow transition" data-i18n="nav_contacts">Контакты</a>
+            </nav>
+
+            <!-- Right Actions: Language Switcher + CTA -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Language Switcher RU / RO -->
+                <div class="flex items-center bg-brand-dark border border-white/15 rounded-xl p-0.5 sm:p-1">
+                    <button type="button" onclick="setLanguage('ru')" id="lang-ru" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black">
+                        RU
+                    </button>
+                    <button type="button" onclick="setLanguage('ro')" id="lang-ro" class="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white">
+                        RO
+                    </button>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="tel:069041101" class="hidden sm:flex bg-brand-yellow hover:bg-yellow-400 text-brand-black font-extrabold text-sm px-5 py-3 rounded-xl shadow-lg shadow-brand-yellow/20 transition transform hover:-translate-y-0.5 items-center gap-2">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>0690-41-101</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Меню" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-brand-dark border border-white/10 text-gray-200 hover:text-brand-yellow text-xl focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-darker border-b border-white/10 px-4 py-5 space-y-3 shadow-2xl">
+            <a href="#portfolio" class="mobile-link block py-2 text-base font-bold text-gray-200 hover:text-brand-yellow border-b border-white/5" data-i18n="nav_portfolio">Наши работы</a>
+            <a href="#services" class="mobile-link block py-2 text-base font-bold text-gray-200 hover:text-brand-yellow border-b border-white/5" data-i18n="nav_services">Услуги</a>
+            <a href="#advantages" class="mobile-link block py-2 text-base font-bold text-gray-200 hover:text-brand-yellow border-b border-white/5" data-i18n="nav_advantages">Преимущества</a>
+            <a href="#contacts" class="mobile-link block py-2 text-base font-bold text-gray-200 hover:text-brand-yellow" data-i18n="nav_contacts">Контакты</a>
+            <div class="pt-3 flex flex-col gap-2.5">
+                <a href="tel:069041101" class="block w-full text-center bg-brand-yellow text-brand-black font-extrabold py-3.5 rounded-xl shadow-lg">
+                    <i class="fa-solid fa-phone mr-2"></i>0690-41-101
+                </a>
+                <a href="https://wa.me/37369041101" target="_blank" class="block w-full text-center bg-brand-green text-white font-extrabold py-3.5 rounded-xl">
+                    <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg relative py-12 sm:py-20 flex items-center overflow-hidden">
+        <div class="absolute inset-0 pattern-grid pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-brand-green/25 border border-brand-green/60 text-white px-3.5 py-1.5 rounded-full text-[11px] sm:text-sm font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping shrink-0"></span>
+                        <span data-i18n="hero_badge">GRAND FASAD — Профессиональные фасадные системы</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight tracking-tight text-white">
+                        <span data-i18n="hero_title_1">Современные</span> <br>
+                        <span class="text-brand-yellow" data-i18n="hero_title_2">Фасады Зданий</span> <br>
+                        <span data-i18n="hero_title_3">Под Ключ</span>
+                    </h1>
+
+                    <p class="text-gray-200 text-sm sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
+                        Выполняем полный цикл фасадных работ: от установки лесов и теплоизоляции стен до облицовки композитными кассетами, фризами и оформления входных групп.
+                    </p>
+
+                    <ul class="space-y-2.5 sm:space-y-3.5 pt-1">
+                        <li class="flex items-center gap-3 text-sm sm:text-xl font-bold text-white">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-brand-green flex items-center justify-center text-xs sm:text-sm text-white shrink-0 shadow-md">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="srv_bullet_1">Монтаж композитных панелей</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm sm:text-xl font-bold text-white">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-brand-green flex items-center justify-center text-xs sm:text-sm text-white shrink-0 shadow-md">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="srv_bullet_2">Вентилируемые фасады</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm sm:text-xl font-bold text-white">
+                            <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-brand-green flex items-center justify-center text-xs sm:text-sm text-white shrink-0 shadow-md">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span data-i18n="srv_bullet_3">Утепление фасадов</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="#portfolio" class="w-full sm:w-auto justify-center bg-brand-yellow hover:bg-yellow-400 text-brand-black font-extrabold px-7 py-4 rounded-xl shadow-xl shadow-brand-yellow/20 transition flex items-center gap-3 text-sm sm:text-base">
+                            <span data-i18n="hero_btn_works">Смотреть наши работы</span>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="tel:069041101" class="w-full sm:w-auto justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/25 text-white font-extrabold px-7 py-4 rounded-xl transition flex items-center gap-3 text-sm sm:text-base">
+                            <i class="fa-solid fa-phone text-brand-yellow"></i>
+                            <span>0690-41-101</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Форма быстрой заявки -->
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-darker/95 backdrop-blur-md border border-white/15 rounded-2xl p-5 sm:p-8 shadow-2xl relative mt-2 lg:mt-0">
+                        <div class="absolute -top-3 right-4 sm:right-6 bg-brand-green text-white text-[11px] sm:text-xs font-extrabold uppercase px-3 py-1 rounded-full tracking-wider shadow-lg" data-i18n="form_badge">
+                            Бесплатный замер
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-1.5" data-i18n="form_title">Бесплатная консультация</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mb-5" data-i18n="form_subtitle">Оставьте номер телефона — мы перезвоним, проконсультируем по материалам и составим смету.</p>
+
+                        <form id="hero-form" class="space-y-3.5">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1" data-i18n="form_name_label">Ваше имя</label>
+                                <input type="text" id="hero-name" required placeholder="Александр / Alexandru" class="w-full bg-brand-black border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1" data-i18n="form_phone_label">Номер телефона</label>
+                                <input type="tel" id="hero-phone" required placeholder="0690-41-101" class="w-full bg-brand-black border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1" data-i18n="form_service_label">Вид работ</label>
+                                <select id="hero-service" class="w-full bg-brand-black border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white focus:outline-none focus:border-brand-yellow transition">
+                                    <option value="Монтаж композитных панелей" data-i18n="srv_bullet_1">Монтаж композитных панелей</option>
+                                    <option value="Вентилируемые фасады" data-i18n="srv_bullet_2">Вентилируемые фасады</option>
+                                    <option value="Утепление фасадов" data-i18n="srv_bullet_3">Утепление фасадов</option>
+                                    <option value="Фасад под ключ" data-i18n="srv_option_4">Фасад под ключ (утепление + облицовка)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenLight text-white font-extrabold py-3.5 sm:py-4 rounded-xl shadow-lg shadow-brand-green/25 transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                                <i class="fa-brands fa-whatsapp text-lg sm:text-xl"></i>
+                                <span data-i18n="form_submit_btn">Отправить запрос в WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Зеленая фирменная полоса -->
+    <section class="bg-brand-green py-5 sm:py-6 border-y border-white/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <h2 class="text-lg sm:text-2xl font-black uppercase text-white tracking-wide" data-i18n="banner_title">ФАСАДЫ ЗДАНИЙ — РАБОТАЕМ НА РЕЗУЛЬТАТ</h2>
+                <p class="text-white/90 text-xs sm:text-sm font-medium mt-0.5" data-i18n="banner_sub">Монтаж композитных панелей • Вентилируемые фасады • Утепление фасадов</p>
+            </div>
+            <a href="tel:069041101" class="w-full sm:w-auto justify-center bg-brand-black hover:bg-brand-darker text-brand-yellow font-black text-lg sm:text-2xl px-6 py-3 rounded-xl shadow-lg transition flex items-center gap-3 shrink-0">
+                <i class="fa-solid fa-phone-volume text-white"></i>
+                <span>0690-41-101</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Наши Работы (Бесконечная круговая карусель со стрелками по бокам фото) -->
+    <section id="portfolio" class="py-14 sm:py-20 bg-brand-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Центрированный заголовок (без верхних стрелок) -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+                <span class="text-brand-yellow font-bold text-xs sm:text-sm uppercase tracking-widest" data-i18n="port_tag">Реальные объекты GRAND FASAD</span>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase text-white mt-1.5" data-i18n="port_title">Наши работы</h2>
+                <p class="text-gray-400 text-xs sm:text-sm mt-2" data-i18n="port_desc">
+                    Листайте работы по кругу или нажмите на любое фото для увеличения.
+                </p>
+                <div class="w-16 sm:w-20 h-1.5 bg-brand-green mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Обертка карусели со стильными стрелками по бокам карточек -->
+            <div class="relative px-2 sm:px-8 lg:px-10">
+                
+                <!-- Левая стрелка (желтеет при наведении и клике) -->
+                <button type="button" id="carousel-prev" aria-label="Предыдущее фото"
+                        class="absolute left-0 sm:left-1 lg:-left-2 top-[44%] -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
+                    <i class="fa-solid fa-chevron-left text-base sm:text-xl"></i>
+                </button>
+
+                <!-- Правая стрелка (желтеет при наведении и клике) -->
+                <button type="button" id="carousel-next" aria-label="Следующее фото"
+                        class="absolute right-0 sm:right-1 lg:-right-2 top-[44%] -translate-y-1/2 z-30 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/95 hover:bg-brand-yellow active:bg-brand-yellow text-white hover:text-brand-black active:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl hover:shadow-[0_0_25px_rgba(250,211,14,0.55)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none">
+                    <i class="fa-solid fa-chevron-right text-base sm:text-xl"></i>
+                </button>
+
+                <!-- Трек бесконечной карусели -->
+                <div id="portfolio-track" class="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-2">
+                    
+                    <!-- Карточка 1: Павильон (графит + дерево) -->
+                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                         data-real-index="0"
+                         data-img="5456306069383616949_125.jpg">
+                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
+                            <img src="5456306069383616949_125.jpg" alt="Торгово-коммерческий павильон" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work4_badge">
+                                Коммерческий объект
+                            </span>
+                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work4_cat">Композитные кассеты + Декор</span>
+                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work4_title">Торгово-коммерческий павильон</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work4_desc">
+                                    Облицовка фасада и широкого парапета графитовыми композитными кассетами в сочетании с декоративными вставками под дерево.
+                                </p>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                <span class="truncate"><i class="fa-solid fa-store text-brand-yellow mr-1"></i><span data-i18n="work4_foot">Комбинированный фасад</span></span>
+                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Шоурум с витражным остеклением -->
+                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                         data-real-index="1"
+                         data-img="5456306069383616951_124.jpg">
+                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
+                            <img src="5456306069383616951_124.jpg" alt="Объемный фриз и витражное остекление" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work5_badge">
+                                Шоурум / Магазин
+                            </span>
+                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work5_cat">Вентилируемый фасад</span>
+                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work5_title">Объемный фриз и витражи</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work5_desc">
+                                    Монтаж двухцветных композитных кассет (серебристый металлик и графит) над панорамным остеклением с точной геометрией углов.
+                                </p>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work5_foot">Кассеты АКП + Витражи</span></span>
+                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 3: Входная группа и колонны -->
+                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                         data-real-index="2"
+                         data-img="5456306069383616889_121.jpg">
+                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
+                            <img src="5456306069383616889_121.jpg" alt="Входная группа и колонны" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-green text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work1_badge">
+                                Входная группа
+                            </span>
+                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work1_cat">Композитные панели</span>
+                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work1_title">Оформление входа и колонн</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work1_desc">
+                                    Кассетная облицовка колонн, козырька и портала второго этажа яркими зелеными композитными панелями и темно-серым фасадом.
+                                </p>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                <span class="truncate"><i class="fa-solid fa-layer-group text-brand-green mr-1"></i><span data-i18n="work1_foot">Фрезеровка и монтаж АКП</span></span>
+                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 4: Фасад административного здания -->
+                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                         data-real-index="3"
+                         data-img="5456306069383616890_121.jpg">
+                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
+                            <img src="5456306069383616890_121.jpg" alt="Фасад административного здания" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-yellow text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work2_badge">
+                                Готовый объект
+                            </span>
+                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-brand-green tracking-wider" data-i18n="work2_cat">Вентилируемый фасад</span>
+                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work2_title">Фасад административного здания</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work2_desc">
+                                    Комплексная облицовка фасада композитными кассетами, аккуратные оконные откосы и четкая геометрия швов по всей площади стены.
+                                </p>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                <span class="truncate"><i class="fa-solid fa-building-shield text-brand-yellow mr-1"></i><span data-i18n="work2_foot">Под ключ</span></span>
+                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 5: 4 этапа реконструкции -->
+                    <div class="gallery-item shrink-0 w-[78vw] sm:w-[320px] lg:w-[355px] bg-brand-darker border border-white/10 hover:border-brand-yellow/60 rounded-2xl overflow-hidden flex flex-col cursor-pointer transition-colors duration-300 shadow-xl"
+                         data-real-index="4"
+                         data-img="5.jpg">
+                        <div class="relative h-52 sm:h-56 overflow-hidden bg-brand-black shrink-0">
+                            <img src="5.jpg" onerror="this.onerror=null; this.src='5456306069383616891_121.jpg'; this.closest('.gallery-item').setAttribute('data-img', '5456306069383616891_121.jpg');" alt="Этапы монтажа и утепления фасада" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-white text-brand-black text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow" data-i18n="work3_badge">
+                                До и После: 4 этапа
+                            </span>
+                            <div class="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/75 text-brand-yellow flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] font-bold uppercase text-brand-yellow tracking-wider" data-i18n="work3_cat">Утепление + Вентфасад</span>
+                                <h3 class="text-base sm:text-lg font-extrabold text-white mt-0.5 mb-1.5 line-clamp-1" data-i18n="work3_title">Полный цикл реконструкции</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed line-clamp-3" data-i18n="work3_desc">
+                                    Все 4 этапа работы: подготовка стен и лесов → утепление и мембрана → монтаж подсистемы и кассет → готовый современный фасад.
+                                </p>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                                <span class="truncate"><i class="fa-solid fa-temperature-arrow-up text-brand-green mr-1"></i><span data-i18n="work3_foot">Теплоизоляция + АКП</span></span>
+                                <span class="text-brand-yellow font-bold shrink-0 ml-2" data-i18n="zoom_photo">Открыть →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Точки-индикаторы активного слайда -->
+            <div class="flex justify-center items-center gap-2 mt-6">
+                <button type="button" data-dot="0" class="slider-dot w-7 h-2 rounded-full bg-brand-yellow transition-all"></button>
+                <button type="button" data-dot="1" class="slider-dot w-2 h-2 rounded-full bg-white/25 hover:bg-brand-yellow/60 transition-all"></button>
+                <button type="button" data-dot="2" class="slider-dot w-2 h-2 rounded-full bg-white/25 hover:bg-brand-yellow/60 transition-all"></button>
+                <button type="button" data-dot="3" class="slider-dot w-2 h-2 rounded-full bg-white/25 hover:bg-brand-yellow/60 transition-all"></button>
+                <button type="button" data-dot="4" class="slider-dot w-2 h-2 rounded-full bg-white/25 hover:bg-brand-yellow/60 transition-all"></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Услуги компании -->
+    <section id="services" class="py-14 sm:py-20 bg-brand-darker border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+                <span class="text-brand-green font-bold text-xs sm:text-sm uppercase tracking-widest" data-i18n="srv_tag">Что мы делаем</span>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase text-white mt-2" data-i18n="srv_heading">Наши основные услуги</h2>
+                <div class="w-16 sm:w-20 h-1.5 bg-brand-yellow mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Услуга 1 -->
+                <div class="bg-brand-black border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-yellow/50 transition shadow-xl">
+                    <div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-yellow/15 border border-brand-yellow/30 flex items-center justify-center text-brand-yellow text-xl sm:text-2xl mb-5">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5" data-i18n="srv1_title">Монтаж композитных панелей</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5" data-i18n="srv1_desc">
+                            Фрезеровка, гибка и монтаж кассет из алюминиевых композитных панелей (АКП). Оформление фасадов зданий, входных групп, колонн, козырьков и фризов любой геометрии.
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv1_li1">Идеально ровная поверхность стен</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv1_li2">Огромный выбор цветов и текстур</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv1_li3">Долговечность и стойкость к выгоранию</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="w-full text-center bg-white/5 hover:bg-brand-yellow hover:text-brand-black text-white font-bold py-3.5 rounded-xl border border-white/10 transition text-sm" data-i18n="btn_order_calc">
+                        Заказать расчет
+                    </a>
+                </div>
+
+                <!-- Услуга 2 -->
+                <div class="bg-brand-black border border-brand-green/50 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl shadow-brand-green/5">
+                    <div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-green/20 border border-brand-green/40 flex items-center justify-center text-brand-green text-xl sm:text-2xl mb-5">
+                            <i class="fa-solid fa-building-shield"></i>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5" data-i18n="srv2_title">Вентилируемые фасады</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5" data-i18n="srv2_desc">
+                            Проектирование и монтаж надежной металлической подсистемы с вентиляционным зазором, который выводит лишнюю влагу и защищает стены здания круглый год.
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> <span data-i18n="srv2_li1">Выравнивание стен с любыми перепадами</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> <span data-i18n="srv2_li2">Всесезонный монтаж без «мокрых» процессов</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> <span data-i18n="srv2_li3">Срок службы конструкции 50+ лет</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="w-full text-center bg-brand-green hover:bg-brand-greenLight text-white font-bold py-3.5 rounded-xl transition text-sm" data-i18n="btn_order_calc">
+                        Заказать расчет
+                    </a>
+                </div>
+
+                <!-- Услуга 3 -->
+                <div class="bg-brand-black border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-yellow/50 transition shadow-xl">
+                    <div>
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-yellow/15 border border-brand-yellow/30 flex items-center justify-center text-brand-yellow text-xl sm:text-2xl mb-5">
+                            <i class="fa-solid fa-temperature-arrow-up"></i>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2.5" data-i18n="srv3_title">Утепление фасадов</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5" data-i18n="srv3_desc">
+                            Профессиональное утепление стен негорючей минеральной плитой с защитной ветро-влагозащитной мембраной для максимального энергосбережения.
+                        </p>
+                        <ul class="space-y-2 text-xs sm:text-sm text-gray-300 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv3_li1">Экономия на отоплении и кондиционировании</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv3_li2">Отличная звукоизоляция помещений</span></li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-green"></i> <span data-i18n="srv3_li3">Защита стен от промерзания и сырости</span></li>
+                        </ul>
+                    </div>
+                    <a href="#contacts" class="w-full text-center bg-white/5 hover:bg-brand-yellow hover:text-brand-black text-white font-bold py-3.5 rounded-xl border border-white/10 transition text-sm" data-i18n="btn_order_calc">
+                        Заказать расчет
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="py-14 sm:py-20 bg-brand-black border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                <span class="text-brand-green font-bold text-xs sm:text-sm uppercase tracking-widest" data-i18n="adv_tag">Наши преимущества</span>
+                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black uppercase text-white mt-2" data-i18n="adv_heading">Почему работают с нами</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-brand-darker border border-white/10 p-6 rounded-2xl">
+                    <div class="w-11 h-11 rounded-xl bg-brand-yellow text-brand-black flex items-center justify-center text-lg font-black mb-4">01</div>
+                    <h4 class="text-base sm:text-lg font-extrabold text-white mb-1.5" data-i18n="adv1_title">Собственные леса и оборудование</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-i18n="adv1_desc">Быстро выходим на объект, монтируем строительные леса и выполняем работы без простоев.</p>
+                </div>
+
+                <div class="bg-brand-darker border border-white/10 p-6 rounded-2xl">
+                    <div class="w-11 h-11 rounded-xl bg-brand-green text-white flex items-center justify-center text-lg font-black mb-4">02</div>
+                    <h4 class="text-base sm:text-lg font-extrabold text-white mb-1.5" data-i18n="adv2_title">Точная подгонка кассет</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-i18n="adv2_desc">Ровные швы, аккуратное оформление углов, колонн, оконных проемов и входных групп.</p>
+                </div>
+
+                <div class="bg-brand-darker border border-white/10 p-6 rounded-2xl">
+                    <div class="w-11 h-11 rounded-xl bg-brand-yellow text-brand-black flex items-center justify-center text-lg font-black mb-4">03</div>
+                    <h4 class="text-base sm:text-lg font-extrabold text-white mb-1.5" data-i18n="adv3_title">Правильная технология утепления</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-i18n="adv3_desc">Надежная фиксация утеплителя и ветрозащитной мембраны перед облицовкой фасада.</p>
+                </div>
+
+                <div class="bg-brand-darker border border-white/10 p-6 rounded-2xl">
+                    <div class="w-11 h-11 rounded-xl bg-brand-green text-white flex items-center justify-center text-lg font-black mb-4">04</div>
+                    <h4 class="text-base sm:text-lg font-extrabold text-white mb-1.5" data-i18n="adv4_title">Соблюдение сроков</h4>
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed" data-i18n="adv4_desc">Работаем по согласованному графику и сдаем готовый фасад точно в оговоренный срок.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты и Подвал -->
+    <footer id="contacts" class="bg-brand-darker border-t border-white/10 pt-14 sm:pt-20 pb-24 sm:pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 pb-12 sm:pb-16 border-b border-white/10">
+                <div class="lg:col-span-5 space-y-5">
+                    <!-- SVG Logo -->
+                    <a href="#" class="inline-block focus:outline-none" aria-label="GRAND FASAD">
+                        <svg viewBox="0 0 830 250" class="h-12 sm:h-14 w-auto" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 235 76 A 108 108 0 1 0 242 132 L 242 122 L 146 122 L 146 149 L 211 149 A 80 80 0 1 1 209 92 Z" fill="#FAD30E"/>
+                            <text x="436" y="146" text-anchor="middle" fill="#FAD30E" font-family="'Jost', 'Montserrat', sans-serif" font-weight="600" font-size="168" letter-spacing="8">RAN</text>
+                            <text x="438" y="233" text-anchor="middle" fill="#75A635" font-family="'Jost', 'Montserrat', sans-serif" font-weight="700" font-size="76" letter-spacing="38">FASAD</text>
+                            <path fill-rule="evenodd" d="M 634 17 L 714 17 C 778 17 818 61 818 125 C 818 189 778 233 714 233 L 634 233 Z M 664 45 L 710 45 C 758 45 788 77 788 125 C 788 173 758 205 710 205 L 664 205 Z" fill="#FAD30E"/>
+                        </svg>
+                    </a>
+
+                    <p class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-md" data-i18n="footer_desc">
+                        Фасады зданий под ключ: монтаж композитных панелей, устройство вентилируемых фасадов и комплексное утепление.
+                    </p>
+
+                    <div class="pt-1">
+                        <a href="tel:069041101" class="inline-flex items-center gap-3.5 text-2xl sm:text-3xl font-black text-white hover:text-brand-yellow transition">
+                            <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-green flex items-center justify-center text-white text-lg sm:text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            0690-41-101
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 pt-1">
+                        <a href="https://wa.me/37369041101" target="_blank" class="flex-1 sm:flex-initial justify-center bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/30 font-bold text-sm px-5 py-3 rounded-xl transition flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="viber://chat?number=%2B37369041101" class="flex-1 sm:flex-initial justify-center bg-[#7360f2]/15 hover:bg-[#7360f2] text-[#a599ff] hover:text-white border border-[#7360f2]/30 font-bold text-sm px-5 py-3 rounded-xl transition flex items-center gap-2">
+                            <i class="fa-brands fa-viber text-lg"></i>
+                            <span>Viber</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="bg-brand-black border border-white/10 rounded-2xl p-5 sm:p-8">
+                        <h3 class="text-lg sm:text-2xl font-extrabold text-white mb-1.5" data-i18n="footer_form_title">Оставить заявку на замер</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm mb-5" data-i18n="footer_form_sub">Свяжемся с вами в ближайшее время и ответим на все вопросы</p>
+                        <form id="footer-form" class="grid sm:grid-cols-2 gap-3.5">
+                            <input type="text" id="footer-name" required data-i18n-placeholder="ph_name" placeholder="Ваше имя" class="bg-brand-darker border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow">
+                            <input type="tel" id="footer-phone" required data-i18n-placeholder="ph_phone" placeholder="Ваш телефон" class="bg-brand-darker border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow">
+                            <input type="text" id="footer-comment" data-i18n-placeholder="ph_comment" placeholder="Комментарий или адрес объекта (необязательно)" class="sm:col-span-2 bg-brand-darker border border-white/15 rounded-xl px-4 py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-brand-yellow">
+                            <button type="submit" class="sm:col-span-2 bg-brand-yellow hover:bg-yellow-400 text-brand-black font-extrabold py-3.5 sm:py-4 rounded-xl transition text-sm sm:text-base" data-i18n="footer_form_btn">
+                                Отправить заявку
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500 text-center">
+                <p data-i18n="footer_copy">© 2026 GRAND FASAD. Все права защищены.</p>
+                <p>0690-41-101 • GRAND FASAD</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Нижняя панель быстрых действий специально для телефонов -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-brand-darker/95 backdrop-blur-md border-t border-white/15 p-2.5 grid grid-cols-2 gap-2.5 shadow-2xl">
+        <a href="tel:069041101" class="bg-brand-yellow text-brand-black font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 text-xs shadow">
+            <i class="fa-solid fa-phone"></i>
+            <span>0690-41-101</span>
+        </a>
+        <a href="https://wa.me/37369041101" target="_blank" class="bg-brand-green text-white font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 text-xs shadow">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Плавающая кнопка звонка для ПК/Планшетов -->
+    <a href="tel:069041101" aria-label="Позвонить" class="hidden sm:flex fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-brand-green hover:bg-brand-greenLight text-white shadow-2xl shadow-brand-green/50 items-center justify-center text-2xl transition transform hover:scale-110">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- Полноэкранный просмотр фото (Lightbox) со стрелками переключения по кругу -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 select-none">
+        <!-- Закрыть -->
+        <button id="lightbox-close" aria-label="Закрыть" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 w-11 h-11 rounded-full bg-brand-darker hover:bg-brand-yellow text-white hover:text-brand-black border border-white/20 flex items-center justify-center text-2xl transition">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Стрелка Назад в Lightbox -->
+        <button id="lightbox-prev" aria-label="Предыдущее" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/90 hover:bg-brand-yellow text-white hover:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl flex items-center justify-center text-lg sm:text-xl transition-all hover:scale-110">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Фото -->
+        <img id="lightbox-img" src="" alt="GRAND FASAD" class="max-h-[82vh] max-w-[86vw] sm:max-w-[80vw] object-contain rounded-xl border border-white/15 shadow-2xl">
+
+        <!-- Стрелка Вперед в Lightbox -->
+        <button id="lightbox-next" aria-label="Следующее" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-brand-darker/90 hover:bg-brand-yellow text-white hover:text-brand-black border-2 border-brand-yellow/40 hover:border-brand-yellow shadow-2xl flex items-center justify-center text-lg sm:text-xl transition-all hover:scale-110">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Счетчик внизу -->
+        <div id="lightbox-counter" class="absolute bottom-5 left-1/2 -translate-x-1/2 bg-brand-darker/90 border border-brand-yellow/30 px-4 py-1 rounded-full text-xs font-extrabold text-brand-yellow">
+            1 / 5
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            ru: {
+                top_guarantee: "Фасады зданий под ключ",
+                top_hours: "Пн–Сб: 08:00 – 19:00",
+                nav_portfolio: "Наши работы",
+                nav_services: "Услуги",
+                nav_advantages: "Преимущества",
+                nav_contacts: "Контакты",
+                hero_badge: "GRAND FASAD — Профессиональные фасадные системы",
+                hero_title_1: "Современные",
+                hero_title_2: "Фасады Зданий",
+                hero_title_3: "Под Ключ",
+                hero_desc: "Выполняем полный цикл фасадных работ: от установки лесов и теплоизоляции стен до облицовки композитными кассетами, фризами и оформления входных групп.",
+                srv_bullet_1: "Монтаж композитных панелей",
+                srv_bullet_2: "Вентилируемые фасады",
+                srv_bullet_3: "Утепление фасадов",
+                srv_option_4: "Фасад под ключ (утепление + облицовка)",
+                hero_btn_works: "Смотреть наши работы",
+                form_badge: "Бесплатный замер",
+                form_title: "Бесплатная консультация",
+                form_subtitle: "Оставьте номер телефона — мы перезвоним, проконсультируем по материалам и составим смету.",
+                form_name_label: "Ваше имя",
+                form_phone_label: "Номер телефона",
+                form_service_label: "Вид работ",
+                form_submit_btn: "Отправить запрос в WhatsApp",
+                banner_title: "ФАСАДЫ ЗДАНИЙ — РАБОТАЕМ НА РЕЗУЛЬТАТ",
+                banner_sub: "Монтаж композитных панелей • Вентилируемые фасады • Утепление фасадов",
+                port_tag: "Реальные объекты GRAND FASAD",
+                port_title: "Наши работы",
+                port_desc: "Листайте работы по кругу или нажмите на любое фото для увеличения.",
+                work4_badge: "Коммерческий объект",
+                work4_cat: "Композитные кассеты + Декор",
+                work4_title: "Торгово-коммерческий павильон",
+                work4_desc: "Облицовка фасада и широкого парапета графитовыми композитными кассетами в сочетании с декоративными вставками под дерево.",
+                work4_foot: "Комбинированный фасад",
+                work5_badge: "Шоурум / Магазин",
+                work5_cat: "Вентилируемый фасад",
+                work5_title: "Объемный фриз и витражи",
+                work5_desc: "Монтаж двухцветных композитных кассет (серебристый металлик и графит) над панорамным остеклением с точной геометрией углов.",
+                work5_foot: "Кассеты АКП + Витражи",
+                work1_badge: "Входная группа",
+                work1_cat: "Композитные панели",
+                work1_title: "Оформление входа и колонн",
+                work1_desc: "Кассетная облицовка колонн, козырька и портала второго этажа яркими зелеными композитными панелями и темно-серым фасадом.",
+                work1_foot: "Фрезеровка и монтаж АКП",
+                work2_badge: "Готовый объект",
+                work2_cat: "Вентилируемый фасад",
+                work2_title: "Фасад административного здания",
+                work2_desc: "Комплексная облицовка фасада композитными кассетами, аккуратные оконные откосы и четкая геометрия швов по всей площади стены.",
+                work2_foot: "Под ключ",
+                work3_badge: "До и После: 4 этапа",
+                work3_cat: "Утепление + Вентфасад",
+                work3_title: "Полный цикл реконструкции",
+                work3_desc: "Все 4 этапа работы: подготовка стен и лесов → утепление и мембрана → монтаж подсистемы и кассет → готовый современный фасад.",
+                work3_foot: "Теплоизоляция + АКП",
+                zoom_photo: "Открыть →",
+                srv_tag: "Что мы делаем",
+                srv_heading: "Наши основные услуги",
+                srv1_title: "Монтаж композитных панелей",
+                srv1_desc: "Фрезеровка, гибка и монтаж кассет из алюминиевых композитных панелей (АКП). Оформление фасадов зданий, входных групп, колонн, козырьков и фризов любой геометрии.",
+                srv1_li1: "Идеально ровная поверхность стен",
+                srv1_li2: "Огромный выбор цветов и текстур",
+                srv1_li3: "Долговечность и стойкость к выгоранию",
+                srv2_title: "Вентилируемые фасады",
+                srv2_desc: "Проектирование и монтаж надежной металлической подсистемы с вентиляционным зазором, который выводит лишнюю влагу и защищает стены здания круглый год.",
+                srv2_li1: "Выравнивание стен с любыми перепадами",
+                srv2_li2: "Всесезонный монтаж без «мокрых» процессов",
+                srv2_li3: "Срок службы конструкции 50+ лет",
+                srv3_title: "Утепление фасадов",
+                srv3_desc: "Профессиональное утепление стен негорючей минеральной плитой с защитной ветро-влагозащитной мембраной для максимального энергосбережения.",
+                srv3_li1: "Экономия на отоплении и кондиционировании",
+                srv3_li2: "Отличная звукоизоляция помещений",
+                srv3_li3: "Защита стен от промерзания и сырости",
+                btn_order_calc: "Заказать расчет",
+                adv_tag: "Наши преимущества",
+                adv_heading: "Почему работают с нами",
+                adv1_title: "Собственные леса и оборудование",
+                adv1_desc: "Быстро выходим на объект, монтируем строительные леса и выполняем работы без простоев.",
+                adv2_title: "Точная подгонка кассет",
+                adv2_desc: "Ровные швы, аккуратное оформление углов, колонн, оконных проемов и входных групп.",
+                adv3_title: "Правильная технология утепления",
+                adv3_desc: "Надежная фиксация утеплителя и ветрозащитной мембраны перед облицовкой фасада.",
+                adv4_title: "Соблюдение сроков",
+                adv4_desc: "Работаем по согласованному графику и сдаем готовый фасад точно в оговоренный срок.",
+                footer_desc: "Фасады зданий под ключ: монтаж композитных панелей, устройство вентилируемых фасадов и комплексное утепление.",
+                footer_form_title: "Оставить заявку на замер",
+                footer_form_sub: "Свяжемся с вами в ближайшее время и ответим на все вопросы",
+                ph_name: "Ваше имя",
+                ph_phone: "Ваш телефон",
+                ph_comment: "Комментарий или адрес объекта (необязательно)",
+                footer_form_btn: "Отправить заявку",
+                footer_copy: "© 2026 GRAND FASAD. Все права защищены."
+            },
+            ro: {
+                top_guarantee: "Fațade clădiri la cheie",
+                top_hours: "Lu–Sâ: 08:00 – 19:00",
+                nav_portfolio: "Lucrările noastre",
+                nav_services: "Servicii",
+                nav_advantages: "Avantaje",
+                nav_contacts: "Contacte",
+                hero_badge: "GRAND FASAD — Sisteme profesionale pentru fațade",
+                hero_title_1: "Fațade Moderne",
+                hero_title_2: "Pentru Clădiri",
+                hero_title_3: "La Cheie",
+                hero_desc: "Executăm ciclul complet de lucrări pentru fațade: de la montarea schelelor și termoizolarea pereților până la placarea cu casete din compozit, frize și amenajarea intrărilor.",
+                srv_bullet_1: "Montarea panourilor compozite",
+                srv_bullet_2: "Fațade ventilate",
+                srv_bullet_3: "Termoizolarea fațadelor",
+                srv_option_4: "Fațadă la cheie (termoizolare + placare)",
+                hero_btn_works: "Vezi lucrările noastre",
+                form_badge: "Măsurare gratuită",
+                form_title: "Consultație gratuită",
+                form_subtitle: "Lăsați numărul de telefon — vă vom contacta pentru consultație și calculul devizului.",
+                form_name_label: "Numele dvs.",
+                form_phone_label: "Numărul de telefon",
+                form_service_label: "Tipul lucrărilor",
+                form_submit_btn: "Trimite cererea pe WhatsApp",
+                banner_title: "FAȚADE CLĂDIRI — CALITATE ȘI DURABILITATE",
+                banner_sub: "Montarea panourilor compozite • Fațade ventilate • Termoizolarea fațadelor",
+                port_tag: "Obiecte reale GRAND FASAD",
+                port_title: "Lucrările noastre",
+                port_desc: "Glisați lucrările în cerc sau apăsați pe orice fotografie pentru mărire.",
+                work4_badge: "Obiect comercial",
+                work4_cat: "Casete compozite + Decor",
+                work4_title: "Pavilion comercial modern",
+                work4_desc: "Placarea fațadei și a parapetului cu casete compozite gri-antracit în combinație modernă cu inserții decorative sub formă de lemn.",
+                work4_foot: "Fațadă combinată",
+                work5_badge: "Showroom / Magazin",
+                work5_cat: "Fațadă ventilată",
+                work5_title: "Friză voluminoasă și vitralii",
+                work5_desc: "Montarea casetelor compozite în două culori (argintiu metalizat și grafit) deasupra vitraliului panoramic, cu o geometrie impecabilă.",
+                work5_foot: "Casete ACP + Vitralii",
+                work1_badge: "Grup de intrare",
+                work1_cat: "Panouri compozite",
+                work1_title: "Amenajarea intrării și a coloanelor",
+                work1_desc: "Placarea cu casete din aluminiu compozit verde intens a coloanelor, copertinei și portalului, în combinație cu fațada gri-antracit.",
+                work1_foot: "Frezare și montaj ACP",
+                work2_badge: "Obiect finalizat",
+                work2_cat: "Fațadă ventilată",
+                work2_title: "Fațada clădirii administrative",
+                work2_desc: "Placarea complexă a fațadei cu casete din compozit, glafuri îngrijite și geometrie precisă a rosturilor pe toată suprafața.",
+                work2_foot: "La cheie",
+                work3_badge: "Înainte și După: 4 etape",
+                work3_cat: "Termoizolare + Fațadă ventilată",
+                work3_title: "Ciclul complet de reconstrucție",
+                work3_desc: "Toate cele 4 etape: pregătirea pereților și a schelelor → termoizolare și membrană → montarea substructurii și casetelor → fațada gata.",
+                work3_foot: "Termoizolare + Compozit",
+                zoom_photo: "Deschide →",
+                srv_tag: "Ce oferim",
+                srv_heading: "Serviciile noastre principale",
+                srv1_title: "Montarea panourilor compozite",
+                srv1_desc: "Frezarea, îndoirea și montarea casetelor din panouri compozite de aluminiu (ACP). Placarea fațadelor, grupurilor de intrare, coloanelor și copertinelor de orice geometrie.",
+                srv1_li1: "Suprafață perfect plană a pereților",
+                srv1_li2: "Gamă variată de culori și texturi",
+                srv1_li3: "Durabilitate și rezistență la razele UV",
+                srv2_title: "Fațade ventilate",
+                srv2_desc: "Proiectarea și montarea substructurii metalice rezistente cu spațiu de ventilare, care elimină umiditatea și protejează pereții clădirii.",
+                srv2_li1: "Alinierea pereților cu orice denivelări",
+                srv2_li2: "Montaj în orice anotimp al anului",
+                srv2_li3: "Durată de viață a construcției de 50+ ani",
+                srv3_title: "Termoizolarea fațadelor",
+                srv3_desc: "Termoizolarea profesională a pereților cu vată minerală bazaltică incombustibilă și membrană de protecție împotriva vântului și umidității.",
+                srv3_li1: "Economie la încălzire și aer condiționat",
+                srv3_li2: "Izolare fonică excelentă a încăperilor",
+                srv3_li3: "Protecție împotriva înghețului și umezelii",
+                btn_order_calc: "Solicită calcul",
+                adv_tag: "Avantajele noastre",
+                adv_heading: "De ce să colaborați cu noi",
+                adv1_title: "Schele și echipamente proprii",
+                adv1_desc: "Ieșim rapid pe șantier, montăm schelele proprii și executăm lucrările fără întârzieri.",
+                adv2_title: "Ajustare precisă a casetelor",
+                adv2_desc: "Rosturi drepte, finisare atentă a colțurilor, coloanelor, geamurilor și grupurilor de intrare.",
+                adv3_title: "Tehnologie corectă de izolare",
+                adv3_desc: "Fixarea sigură a termoizolației și a membranei de protecție înainte de placarea fațadei.",
+                adv4_title: "Respectarea termenelor",
+                adv4_desc: "Lucrăm conform graficului stabilit și predăm fațada gata exact la termenul convenit.",
+                footer_desc: "Fațade clădiri la cheie: montarea panourilor compozite, sisteme de fațade ventilate și termoizolare complexă.",
+                footer_form_title: "Solicită o măsurare gratuită",
+                footer_form_sub: "Vă vom contacta în cel mai scurt timp și vă vom răspunde la toate întrebările",
+                ph_name: "Numele dvs.",
+                ph_phone: "Numărul de telefon",
+                ph_comment: "Comentariu sau adresa obiectului (opțional)",
+                footer_form_btn: "Trimite cererea",
+                footer_copy: "© 2026 GRAND FASAD. Toate drepturile rezervate."
+            }
+        };
+
+        let currentLang = 'ru';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            const btnRu = document.getElementById('lang-ru');
+            const btnRo = document.getElementById('lang-ro');
+            if (lang === 'ru') {
+                btnRu.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black";
+                btnRo.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white";
+            } else {
+                btnRo.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition bg-brand-yellow text-brand-black";
+                btnRu.className = "px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs font-extrabold transition text-gray-300 hover:text-white";
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.setAttribute('placeholder', translations[lang][key]);
+                }
+            });
+        }
+
+        // Мобильное меню
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // БЕСКОНЕЧНАЯ КРУГОВАЯ КАРУСЕЛЬ (Infinite Loop Slider)
+        const track = document.getElementById('portfolio-track');
+        const originalCards = Array.from(track.querySelectorAll('.gallery-item'));
+        const totalReal = originalCards.length; // 5 карточек
+        const dots = document.querySelectorAll('.slider-dot');
+
+        // Сохраняем массив картинок для полноэкранного просмотра
+        const photoList = originalCards.map(c => c.getAttribute('data-img'));
+
+        // Клонируем набор карточек в начало и в конец для бесшовного бесконечного вращения в обе стороны
+        originalCards.forEach(card => {
+            const cloneEnd = card.cloneNode(true);
+            track.appendChild(cloneEnd);
+        });
+        originalCards.slice().reverse().forEach(card => {
+            const cloneStart = card.cloneNode(true);
+            track.insertBefore(cloneStart, track.firstChild);
+        });
+
+        function getCardStep() {
+            const firstCard = track.querySelector('.gallery-item');
+            if (!firstCard) return 340;
+            const gap = window.innerWidth >= 640 ? 24 : 16;
+            return firstCard.offsetWidth + gap;
+        }
+
+        // Устанавливаем стартовую позицию на центральный (оригинальный) блок карточек
+        function resetToCenterSet() {
+            const step = getCardStep();
+            track.scrollLeft = totalReal * step;
+            updateActiveDot();
+        }
+
+        window.addEventListener('load', resetToCenterSet);
+        window.addEventListener('resize', resetToCenterSet);
+
+        let isJumping = false;
+
+        function updateActiveDot() {
+            const step = getCardStep();
+            const rawIndex = Math.round(track.scrollLeft / step);
+            const realIndex = ((rawIndex % totalReal) + totalReal) % totalReal;
+            dots.forEach((dot, idx) => {
+                if (idx === realIndex) {
+                    dot.className = "slider-dot w-7 h-2 rounded-full bg-brand-yellow transition-all";
+                } else {
+                    dot.className = "slider-dot w-2 h-2 rounded-full bg-white/25 hover:bg-brand-yellow/60 transition-all";
+                }
+            });
+        }
+
+        // Бесшовный перескок при достижении клонов слева или справа
+        track.addEventListener('scroll', () => {
+            if (isJumping) return;
+            const step = getCardStep();
+            const setWidth = totalReal * step;
+
+            if (track.scrollLeft <= step * 0.5) {
+                isJumping = true;
+                track.scrollLeft += setWidth;
+                isJumping = false;
+            } else if (track.scrollLeft >= setWidth * 2 - step * 0.5) {
+                isJumping = true;
+                track.scrollLeft -= setWidth;
+                isJumping = false;
+            }
+            updateActiveDot();
+        });
+
+        function moveCarousel(dir) {
+            const step = getCardStep();
+            track.scrollBy({ left: dir * step, behavior: 'smooth' });
+        }
+
+        document.getElementById('carousel-prev').addEventListener('click', () => moveCarousel(-1));
+        document.getElementById('carousel-next').addEventListener('click', () => moveCarousel(1));
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const idx = parseInt(dot.getAttribute('data-dot'), 10);
+                const step = getCardStep();
+                track.scrollTo({ left: (totalReal + idx) * step, behavior: 'smooth' });
+            });
+        });
+
+        // Полноэкранный Lightbox (тоже бесконечный по кругу)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        let currentPhotoIndex = 0;
+
+        function openLightbox(index) {
+            currentPhotoIndex = ((index % totalReal) + totalReal) % totalReal;
+            // Берем актуальный путь с оригинальной карточки (на случай фоллбэка 5.jpg)
+            const currentImg = originalCards[currentPhotoIndex].getAttribute('data-img') || photoList[currentPhotoIndex];
+            lightboxImg.setAttribute('src', currentImg);
+            lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${totalReal}`;
+            lightbox.classList.remove('hidden');
+        }
+
+        // Делегирование клика на все карточки (включая клоны)
+        track.addEventListener('click', (e) => {
+            const card = e.target.closest('.gallery-item');
+            if (!card) return;
+            const realIdx = parseInt(card.getAttribute('data-real-index'), 10);
+            openLightbox(realIdx);
+        });
+
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentPhotoIndex - 1);
+        });
+
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openLightbox(currentPhotoIndex + 1);
+        });
+
+        lightboxClose.addEventListener('click', () => lightbox.classList.add('hidden'));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) lightbox.classList.add('hidden');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('hidden')) return;
+            if (e.key === 'Escape') lightbox.classList.add('hidden');
+            if (e.key === 'ArrowLeft') openLightbox(currentPhotoIndex - 1);
+            if (e.key === 'ArrowRight') openLightbox(currentPhotoIndex + 1);
+        });
+
+        // Свайп пальцем внутри полноэкранного фото на телефоне
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', (e) => {
+            const diff = e.changedTouches[0].screenX - touchStartX;
+            if (Math.abs(diff) > 45) {
+                if (diff < 0) openLightbox(currentPhotoIndex + 1);
+                else openLightbox(currentPhotoIndex - 1);
+            }
+        }, { passive: true });
+
+        // Отправка форм в WhatsApp
+        const whatsappPhone = '37369041101';
+
+        document.getElementById('hero-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('hero-name').value;
+            const phone = document.getElementById('hero-phone').value;
+            const serviceSelect = document.getElementById('hero-service');
+            const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+            const text = currentLang === 'ro'
+                ? `Bună ziua, GRAND FASAD! Mă numesc ${name} (${phone}). Mă interesează: ${service}.`
+                : `Здравствуйте, GRAND FASAD! Меня зовут ${name} (${phone}). Интересует: ${service}.`;
+            window.open(`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+
+        document.getElementById('footer-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('footer-name').value;
+            const phone = document.getElementById('footer-phone').value;
+            const comment = document.getElementById('footer-comment').value;
+            const text = currentLang === 'ro'
+                ? `Bună ziua, GRAND FASAD! Cerere de pe site:\nNume: ${name}\nTelefon: ${phone}\nDetalii: ${comment || 'Consultație fațadă'}`
+                : `Здравствуйте, GRAND FASAD! Заявка с сайта:\nИмя: ${name}\nТелефон: ${phone}\nКомментарий: ${comment || 'Консультация по фасаду'}`;
+            window.open(`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    </script>
+</body>
+</html>
